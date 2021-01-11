@@ -4,11 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
 <mapper namespace="com.kuang.dao.UserDao">
-    <select id="getUserList" resultType="com.kuang.pojo.User">
+    <!--user   为Use,javabean的别名-->
+    <select id="getUserList" resultType="user">
         select * from User
     </select>
+    <!--通过id查询-->
     <select id="getUserById" parameterType="int" resultType="com.kuang.pojo.User">
         select * from User where id = #{id};
+    </select>
+    <!--模糊查询-->
+    <select id="getUserLike" resultType="com.kuang.pojo.User">
+        select * from User where name like "%"#{value}"%";
     </select>
     <!--插入数据-->
     <select id="addUser" parameterType="com.kuang.pojo.User">

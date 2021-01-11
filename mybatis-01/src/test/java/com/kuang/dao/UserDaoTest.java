@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class UserDaoTest {
-
+    //获取用户列表
     @Test
     public void test() {
         //获取session对象
@@ -37,6 +37,28 @@ public class UserDaoTest {
 
     }
 
+    //模糊查询
+    @Test
+    public void getUserLike() {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = MybatisUtils.getSqlSession();
+            UserDao userDao = sqlSession.getMapper(UserDao.class);
+
+            List<User> userList = userDao.getUserLike("老");
+            for (User user : userList) {
+                System.out.println(user);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+
     //添加用户
     @Test
     public void addUser() {
@@ -44,7 +66,7 @@ public class UserDaoTest {
         UserDao userDao = sqlSession.getMapper(UserDao.class);
         try {
 
-            userDao.addUser(new User("老三", "女"));
+            userDao.addUser(new User("老二", "女"));
             sqlSession.commit();
 
         } catch (Exception e) {
@@ -77,10 +99,9 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
 
-            userDao.deleteUser(9);
-            sqlSession.commit();
-            sqlSession.close();
-
+        userDao.deleteUser(9);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
 

@@ -9,6 +9,8 @@ public interface UserDao {
 
     User getUserById(int id);
 
+    List<User> getUserLike(String value);
+
     void addUser(User user);
 
     void updataUser(int id);

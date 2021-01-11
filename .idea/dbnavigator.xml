@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="414f910f-a577-4bab-9d67-19357ace3525">
-        <schema name="test" object-types="dataset trigger, function, column, constraint, table, index, view, procedure" />
+        <schema name="test" object-types="constraint, dataset trigger, column, procedure, function, index, table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -35,15 +35,17 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="414f910f-a577-4bab-9d67-19357ace3525" object-ref="schemas/test/tables/user" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="414f910f-a577-4bab-9d67-19357ace3525" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="414f910f-a577-4bab-9d67-19357ace3525" dataset="test.user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="414f910f-a577-4bab-9d67-19357ace3525" dataset="test.user" active-filter-id="EMPTY_FILTER">
+      <filter id="af3e5051-c223-4cf7-a2fd-e5b1611e9b23" name="22" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="22" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -90,7 +92,7 @@
           <deprecated-pwd value="MTIzNDU2" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
