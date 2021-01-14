@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
+<mapper namespace="com.kuang.dao.UserDao">
+    <!--user   为Use,javabean的别名-->
+    <select id="getUserList" resultType="user">
+        select * from User
+    </select>
+    <!--通过id查询-->
+    <select id="getUserById" parameterType="int" resultType="com.kuang.pojo.User">
+        select * from User where id = #{id};
+    </select>
+    <!--模糊查询-->
+    <select id="getUserLike" resultType="com.kuang.pojo.User">
+        select * from User where name like "%"#{value}"%";
+    </select>
+    <!--插入数据-->
+    <select id="addUser" parameterType="com.kuang.pojo.User">
+        insert into user(name,sex) values (#{name},#{sex});
+    </select>
+    <!--更新数据-->
+    <update id="updataUser" parameterType="int">
+        update user set name="daxiong",sex="nan" where id = #{id};
+
+    </update>
+    <!--删除数据-->
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id= #{id};
+    </delete>
+</mapper>
