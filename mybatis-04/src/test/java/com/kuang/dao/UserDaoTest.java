@@ -39,7 +39,7 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         //执行sql    getMapper方式
         UserDao userDao = sqlSession.getMapper(UserDao.class);
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
         map.put("startIndex", 0);
         map.put("pageSize", 2);
 
