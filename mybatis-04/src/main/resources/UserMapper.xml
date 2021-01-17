@@ -5,6 +5,12 @@
 <!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
 <mapper namespace="com.kuang.dao.UserDao">
     <!--user   为Use,javabean的别名 需在配置文件中配置-->
+
+    <select id="getUserListByLimit" parameterType="map" resultType="user">
+        select * from User Limit #{startIndex},#{pageSize};
+
+    </select>
+
     <select id="getUserList" resultType="user">
         select * from User
     </select>
