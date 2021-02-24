@@ -5,6 +5,18 @@
 <!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
 <mapper namespace="com.kuang.dao.StudentMapper">
 
+    <!--继续编写多对一查询  TODO-->
+    <!--按照结果嵌套处理  关联查询-->
+    <select id="getStudent" resultMap="StudentTeacher">
+        select s.tid sid, t.id tid ,s.`name` sname,t.`name` tname from student s,teacher t where s.tid=t.id;
+    </select>
 
-
+    <resultMap id="StudentTeacher" type="Student">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="Teacher">
+            <result property="name" column="tname"/>
+            <result property="id" column="tid"/>
+        </association>
+    </resultMap>
 </mapper>
