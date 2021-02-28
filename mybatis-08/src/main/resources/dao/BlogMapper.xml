@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
+<mapper namespace="com.kuang.dao.BlogMapper">
+
+    <select id="queryBlogIf" parameterType="map" resultType="blog">
+        select * from blog where 1=1
+        <if test="title != null">
+            and title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </select>
+</mapper>
