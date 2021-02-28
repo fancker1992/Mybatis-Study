@@ -3,10 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--1、namespace绑定UserDao接口  2、id为UserDao接口中的方法  3、resultType为返回值类型,User Bean 4、parameterType 为参数类型-->
-<mapper namespace="com.kuang.dao.TeacherMapper">
-    <select id="MyTest" resultType="teacher">
-        select * from Teacher where id=#{id};
-
-    </select>
+<mapper namespace="com.kuang.dao.StudentMapper">
 
 </mapper>
